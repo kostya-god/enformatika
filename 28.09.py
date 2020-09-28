@@ -11,7 +11,8 @@ def Fib(n):
     return fib2
 def createParser ():
     parser = argparse.ArgumentParser()
-    parser.add_argument ('-name', nargs='?')
+    parser.add_argument ('-n', nargs='?')
+    parser.add_argument ('name', nargs='?')
     return parser
 if __name__ == "__main__":
     parser = createParser()
@@ -20,7 +21,7 @@ if __name__ == "__main__":
         print(Fib(int(namespace.name)))
     else:
         if len(sys.argv) == 3:
-            if sys.argv[1] == '-name':
+            if sys.argv[1] == '-n':
                 print(Fib(int(namespace.name)))
             else:
                 print('Unvalid argument')
