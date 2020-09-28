@@ -20,12 +20,8 @@ if __name__ == "__main__":
     if len (sys.argv) == 2:
         print(Fib(int(namespace.name)))
     else:
-        if len(sys.argv) == 3:
-            if sys.argv[1] == '-n':
-                print(Fib(int(namespace.n)))
-            else:
-                print('Unvalid argument')
-                sys.exit(1)
+        print(Fib(int(namespace.n)))
+
 
 
 
