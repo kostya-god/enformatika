@@ -1,8 +1,7 @@
 import sys
-n= int(input())
+import argparse
 def Fib(n):
     fib1 = fib2 = 1
-
     n = n - 2
 
     while n > 0:
@@ -10,19 +9,23 @@ def Fib(n):
         n -= 1
 
     return fib2
+def createParser ():
+    parser = argparse.ArgumentParser()
+    parser.add_argument ('-name', nargs='?')
+    return parser
 if __name__ == "__main__":
-    if len (sys.argv) == 1:
-        print(Fib(n))
+    parser = createParser()
+    namespace = parser.parse_args(sys.argv[1:])
+    if len (sys.argv) == 2:
+        print(Fib(int(namespace.name)))
     else:
-        if len(sys.argv) == 2:
-            if sys.argv[1] == '-n':
-                print(Fib(n))
+        if len(sys.argv) == 3:
+            if sys.argv[1] == '-name':
+                print(Fib(int(namespace.name)))
             else:
                 print('Unvalid argument')
                 sys.exit(1)
-        else:
-            print('Incorrect number of arguments')
-            sys.exit(1)
+
 
 
 
